@@ -27,10 +27,14 @@ dependencies {
 
 	//JSP 추가 시작
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'javax.servlet:jstl'
 	//JSP 추가 끝
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// cannot be resolved in either web.xml or the jar files deployed with this application 라는 오류 발생으로 jstl 라이브러리 설치 
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.44'
+	implementation 'javax.servlet:jstl'
+
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
